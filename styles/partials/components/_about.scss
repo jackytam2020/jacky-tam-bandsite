@@ -1,0 +1,197 @@
+@use '../breakpoints' as *;
+@use '../colours' as *;
+@use '../fontFaces' as *;
+
+.about__header,
+.about__quote,
+.about__quote-owner {
+  font-family: 'Avenir Bold';
+}
+
+.about__copy-subheader {
+  font-family: 'Avenir Demi';
+}
+
+/* for small layout */
+@include small() {
+  .about {
+    padding-bottom: 16px;
+    .about__header {
+      font-size: 1.5rem;
+      padding-left: 16px;
+      padding-top: 24px;
+      padding-bottom: 16px;
+    }
+
+    .about__image-container {
+      display: flex;
+      padding-left: 16px;
+      padding-right: 16px;
+      padding-bottom: 16px;
+      .about__band-image {
+        width: 100%;
+        height: 20vh;
+        object-fit: cover;
+      }
+    }
+
+    .about__quote-container {
+      padding-left: 16px;
+      padding-right: 16px;
+      display: flex;
+      flex-direction: column;
+
+      .about__quote,
+      .about__quote-owner {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+      }
+    }
+
+    .about__copy-subheader {
+      padding-left: 16px;
+      padding-top: 16px;
+      padding-bottom: 24px;
+      margin: 0;
+    }
+
+    .about__copy-container {
+      display: flex;
+      flex-direction: column;
+      padding-left: 16px;
+      padding-right: 16px;
+
+      .about__copy-1,
+      .about__copy-2 {
+        font-size: 0.813rem;
+        line-height: 1.125rem;
+      }
+    }
+  }
+}
+
+/* Medium Layout */
+
+@include medium() {
+  .about {
+    padding-bottom: 36px;
+
+    .about__header {
+      font-size: 3.75rem;
+      padding-left: 36px;
+      padding-top: 48px;
+      padding-bottom: 36px;
+    }
+
+    .about__image-container {
+      display: flex;
+      padding-left: 128px;
+      padding-right: 128px;
+      padding-bottom: 36px;
+      .about__band-image {
+        width: 100%;
+        height: 35vh;
+        object-fit: cover;
+        background-position: center;
+      }
+    }
+
+    .about__quote-container {
+      padding-left: 128px;
+      padding-right: 128px;
+      display: flex;
+      flex-direction: column;
+
+      .about__quote,
+      .about__quote-owner {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+    }
+
+    .about__copy-subheader {
+      padding-left: 128px;
+      padding-top: 48px;
+      padding-bottom: 24px;
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .about__copy-container {
+      display: flex;
+      padding-left: 128px;
+      padding-right: 128px;
+      justify-content: space-between;
+
+      .about__copy-1,
+      .about__copy-2 {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+        width: 48%;
+      }
+    }
+  }
+}
+
+/* Large layout */
+
+@include large() {
+  .about {
+    padding-bottom: 36px;
+
+    .about__header {
+      font-size: 3.75rem;
+      padding-left: 63px;
+      padding-top: 48px;
+      padding-bottom: 36px;
+    }
+
+    .about__image-container {
+      display: flex;
+      padding-left: 192px;
+      padding-right: 192px;
+      padding-bottom: 36px;
+      .about__band-image {
+        width: 100%;
+        height: 60vh;
+        object-fit: cover;
+        background-position: center;
+      }
+    }
+
+    .about__quote-container {
+      padding-left: 192px;
+      padding-right: 192px;
+      display: flex;
+      flex-direction: column;
+
+      .about__quote,
+      .about__quote-owner {
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+    }
+
+    .about__copy-subheader {
+      padding-left: 192px;
+      padding-top: 48px;
+      padding-bottom: 24px;
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    .about__copy-container {
+      display: flex;
+      padding-left: 192px;
+      padding-right: 192px;
+      justify-content: space-between;
+
+      .about__copy-1,
+      .about__copy-2 {
+        font-size: 0.875rem;
+        line-height: 1.375rem;
+        width: 48%;
+      }
+    }
+  }
+}

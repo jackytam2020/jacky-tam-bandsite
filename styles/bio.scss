@@ -1,0 +1,22 @@
+@use './partials/colours' as *;
+@use './partials/fontFaces' as *;
+@use './partials/breakpoints' as *;
+
+/* components */
+@use './partials/components/navBar';
+@use './partials/components/hero';
+@use './partials/components/about';
+@use './partials/components/photo-gallery';
+@use './partials/components/footer';
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Avenir Regular';
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
