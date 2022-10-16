@@ -8,44 +8,44 @@
   height: 75px;
   padding-top: 16px;
 
-  .nav-bar__logo-block {
+  &__logo-block {
     max-height: 20px;
     max-width: 120px;
     width: 120px;
     height: 20px;
     background-color: $bandSite-black;
-
-    .nav-bar__logo {
-      width: 120px;
-      height: 20px;
-    }
   }
 
-  .nav-bar__right {
+  &__logo {
+    width: 120px;
+    height: 20px;
+  }
+
+  &__right {
     display: flex;
 
-    .nav-bar__link-holder--active {
-      border-bottom: solid 4px $white;
-    }
-
-    .nav-bar__link {
-      color: $mercury;
-      font-size: 0.875rem;
-    }
-
-    .nav-bar__link-holder:hover {
-      border-bottom: solid 4px $white;
-
-      .nav-bar__link {
-        color: $white;
-        font-family: 'Avenir Demi';
-      }
-    }
-
-    .nav-bar__link--active {
+    &__link--active {
       color: $white;
       font-family: 'Avenir Demi';
     }
+  }
+
+  &__link-holder--active {
+    border-bottom: solid 4px $white;
+  }
+
+  &__link-holder:hover {
+    border-bottom: solid 4px $white;
+
+    .nav-bar__link {
+      color: $white;
+      font-family: 'Avenir Demi';
+    }
+  }
+
+  &__link {
+    color: $mercury;
+    font-size: 0.875rem;
   }
 }
 
@@ -56,26 +56,17 @@
     align-items: center;
     justify-content: space-between;
 
-    .nav-bar__right {
+    &__right {
       width: 100%;
       justify-content: space-between;
-
-      .nav-bar__link-holder {
-        width: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 16px;
-      }
     }
-  }
 
-  .hero__background {
-    padding-left: 16px;
-
-    .hero-title {
-      color: $white;
-      font-size: 1.5rem;
+    &__link-holder {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 16px;
     }
   }
 }
@@ -89,20 +80,21 @@
     padding-right: 36px;
     padding-bottom: 4px;
 
-    .nav-bar__left {
+    &__left {
       height: 70%;
     }
 
-    .nav-bar__right {
+    &__right {
       height: 70%;
+      margin-left: 20px;
+    }
 
-      .nav-bar__link-holder {
-        height: 100%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        margin-left: 24px;
-      }
+    &__link-holder {
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      margin-left: 48px;
     }
   }
 }
@@ -111,25 +103,26 @@
 
 @include large() {
   .nav-bar {
-    padding-left: 63px;
-    padding-right: 63px;
+    padding-left: 126px;
+    padding-right: 126px;
     align-items: flex-end;
     padding-bottom: 4px;
 
-    .nav-bar__left {
+    &__left {
       height: 70%;
     }
 
-    .nav-bar__right {
+    &__right {
       height: 70%;
+      margin-left: 20px;
+    }
 
-      .nav-bar__link-holder {
-        height: 100%;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        margin-left: 24px;
-      }
+    &__link-holder {
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      margin-left: 48px;
     }
   }
 }
