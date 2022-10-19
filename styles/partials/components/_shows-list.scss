@@ -1,0 +1,179 @@
+@use '../breakpoints' as *;
+@use '../colours' as *;
+@use '../fontFaces' as *;
+
+.shows {
+  display: flex;
+}
+
+.shows__show-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid $mercury;
+  padding-bottom: 24px;
+}
+
+.shows__tablet-category-header {
+  display: flex;
+}
+
+.shows__show-object-item-container {
+  display: flex;
+}
+
+.shows__tablet-object-key {
+  width: 180px;
+}
+
+.shows__tablet-date-key {
+  margin-right: 100px;
+}
+
+.shows__show-object-item {
+  width: 180px;
+}
+
+.shows__object-key,
+.shows__tablet-object-key {
+  color: $silver;
+  font-size: 0.875rem;
+}
+
+.shows__date--bolded {
+  font-family: 'Avenir Bold';
+}
+
+.shows__object-value {
+  font-size: 0.875rem;
+  font-family: 'Avenir Demi';
+}
+
+.shows__buy-tickets {
+  color: $mercury;
+  background-color: $bandSite-DarkBlack;
+  border: none;
+  border-radius: 4px;
+  height: 50px;
+}
+
+/* for small layout */
+@include small() {
+  .shows {
+    flex-direction: column;
+
+    &__tablet-category-header {
+      display: none;
+    }
+
+    &__show-container {
+      padding-left: 16px;
+      padding-right: 16px;
+      margin-bottom: 20px;
+    }
+
+    &__header {
+      font-size: 1.5rem;
+      font-family: 'Avenir Demi';
+    }
+
+    &__header {
+      padding-left: 16px;
+    }
+
+    &__show-object-item-container {
+      flex-direction: column;
+    }
+  }
+}
+
+/* Medium Layout */
+
+@include medium() {
+  .shows {
+    flex-direction: column;
+    padding-left: 32px;
+    padding-right: 32px;
+
+    &__show-container {
+      margin-bottom: 20px;
+    }
+
+    &__header {
+      font-size: 3.75rem;
+      font-family: 'Avenir Demi';
+    }
+
+    &__show-object-item-container {
+      flex-direction: row;
+      align-items: center;
+      position: relative;
+    }
+
+    &__show-object-item-container > div:first-child {
+      margin-right: 100px;
+    }
+
+    &__object-key {
+      display: none;
+    }
+    &__buy-tickets {
+      width: 200px;
+      position: absolute;
+      right: 0;
+    }
+  }
+}
+
+/* Large layout */
+
+@include large() {
+  .shows {
+    flex-direction: column;
+    align-items: flex-end;
+    padding-left: 126px;
+    padding-right: 126px;
+
+    &__top {
+      display: flex;
+      align-items: baseline;
+      width: 100%;
+    }
+
+    &__header {
+      font-size: 3.75rem;
+      font-family: 'Avenir Demi';
+      width: 30%;
+    }
+
+    &__tablet-category-header {
+      width: 70%;
+    }
+
+    &__bottom {
+      width: 70%;
+    }
+
+    &__show-container {
+      margin-bottom: 20px;
+    }
+
+    &__show-object-item-container {
+      flex-direction: row;
+      align-items: center;
+      position: relative;
+    }
+
+    &__show-object-item-container > div:first-child {
+      margin-right: 100px;
+    }
+
+    &__object-key {
+      display: none;
+    }
+    &__buy-tickets {
+      width: 200px;
+      position: absolute;
+      right: 0;
+    }
+  }
+}
