@@ -209,7 +209,7 @@
 /* Medium Layout */
 @media only screen and (min-width: 768px) and (max-width: 1279px) {
   .hero {
-    height: 50vh;
+    height: 65vh;
   }
   .hero__background {
     padding-left: 32px;
@@ -225,7 +225,7 @@
   .hero__album {
     font-size: 1.5rem;
     margin: 0;
-    margin-top: 24px;
+    margin-top: 63px;
   }
   .hero__song {
     font-size: 3.75rem;
@@ -234,7 +234,7 @@
   .hero__media-player {
     height: 125px;
     margin-top: 20px;
-    width: 55%;
+    width: 50%;
   }
 }
 /* Large layout */
@@ -525,6 +525,239 @@
     margin-bottom: 36px;
   }
 }
+.comments-section {
+  display: flex;
+  flex-direction: column;
+}
+.comments-section__header {
+  font-family: "Avenir Demi";
+}
+.comments-section__avatar {
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.comments-section__name-header, .comments-section__comment-header {
+  color: #afafaf;
+  margin: 0;
+  margin-bottom: 10px;
+}
+.comments-section__form-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+.comments-section__name-block {
+  width: 85%;
+}
+.comments-section__comment-block {
+  width: 85%;
+  margin-left: auto;
+}
+.comments-section__comment-header {
+  margin-top: 30px;
+}
+.comments-section__avatar-holder {
+  width: 10%;
+  padding: 0;
+}
+.comments-section__name-input {
+  width: 100%;
+  border: 1px solid #afafaf;
+  border-radius: 4px;
+  padding-left: 10px;
+}
+.comments-section__comment-input {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #afafaf;
+  border-radius: 4px;
+  resize: none;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+.comments-section ::-moz-placeholder {
+  color: #000000;
+  font-size: 0.875rem;
+  font-family: "Avenir Regular";
+}
+.comments-section :-ms-input-placeholder {
+  color: #000000;
+  font-size: 0.875rem;
+  font-family: "Avenir Regular";
+}
+.comments-section ::placeholder {
+  color: #000000;
+  font-size: 0.875rem;
+  font-family: "Avenir Regular";
+}
+.comments-section__post-button {
+  background-color: #323232;
+  color: #ffffff;
+  border-radius: 4px;
+  height: 40px;
+}
+.comments-section__post-button:hover {
+  background-color: #000000;
+}
+.comments-section__rendered-comments {
+  display: flex;
+  flex-direction: column;
+}
+.comments-section__comment-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  border-bottom: 1px solid #afafaf;
+}
+.comments-section__left-comment-container {
+  width: 10%;
+}
+.comments-section__right-comment-container {
+  width: 85%;
+}
+.comments-section__user-info {
+  display: flex;
+  justify-content: space-between;
+}
+.comments-section__user-name {
+  font-family: "Avenir Bold";
+  margin: 0;
+}
+.comments-section__date-posted {
+  color: #afafaf;
+  margin: 0;
+}
+.comments-section__comment-block {
+  display: flex;
+  flex-direction: column;
+}
+.comments-section__comment {
+  margin-top: 20px;
+  font-family: "Avenir Regular";
+}
+
+/* for small layout */
+@media only screen and (max-width: 767px) {
+  .comments-section {
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+  }
+  .comments-section__header {
+    font-size: 1.5rem;
+  }
+  .comments-section__avatar {
+    width: 36px;
+    height: 36px;
+    background-color: #e1e1e1;
+  }
+  .comments-section__comment-form {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #afafaf;
+  }
+  .comments-section__name-input {
+    height: 36px;
+  }
+  .comments-section__post-button {
+    width: 100%;
+    margin-top: 16px;
+  }
+  .comments-section__comment-container {
+    padding-bottom: 0px;
+  }
+}
+/* Medium Layout */
+@media only screen and (min-width: 768px) and (max-width: 1279px) {
+  .comments-section {
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 32px;
+  }
+  .comments-section__header {
+    font-size: 3.75rem;
+  }
+  .comments-section__avatar {
+    width: 48px;
+    height: 48px;
+    background-color: #e1e1e1;
+  }
+  .comments-section__name-input {
+    height: 48px;
+  }
+  .comments-section__post-button {
+    width: 150px;
+    margin-top: 16px;
+    margin-left: auto;
+  }
+  .comments-section__comment-container {
+    padding-bottom: 0px;
+  }
+  .comments-section__comment-form {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+  .comments-section__comment-form:after {
+    content: "";
+    display: block;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #afafaf;
+  }
+  .comments-section__rendered-comments {
+    padding-left: 96px;
+    padding-right: 96px;
+  }
+  .comments-section__comment-block {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* Large layout */
+@media only screen and (min-width: 1280px) {
+  .comments-section {
+    padding-left: 126px;
+    padding-right: 126px;
+    padding-bottom: 32px;
+  }
+  .comments-section__header {
+    font-size: 3.75rem;
+  }
+  .comments-section__avatar {
+    width: 48px;
+    height: 48px;
+    background-color: #e1e1e1;
+  }
+  .comments-section__name-input {
+    height: 48px;
+  }
+  .comments-section__post-button {
+    width: 150px;
+    margin-top: 16px;
+    margin-left: auto;
+  }
+  .comments-section__comment-container {
+    padding-bottom: 0px;
+  }
+  .comments-section__comment-form {
+    padding-left: 250px;
+    padding-right: 250px;
+  }
+  .comments-section__comment-form:after {
+    content: "";
+    display: block;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #afafaf;
+  }
+  .comments-section__rendered-comments {
+    padding-left: 250px;
+    padding-right: 250px;
+  }
+  .comments-section__comment-block {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .footer {
   display: flex;
   background-color: #323232;
@@ -597,7 +830,7 @@
   }
   .footer__logo {
     position: absolute;
-    bottom: 60px;
+    bottom: 80px;
   }
   .footer__band-copyright {
     padding-top: 72px;
@@ -663,9 +896,8 @@
     font-size: 2.5rem;
     width: 100%;
   }
-  .footer__logo {
-    position: absolute;
-    right: 0px;
+  .footer__logo-holder {
+    margin-left: auto;
   }
   .footer__contact-info-row {
     flex-direction: row;

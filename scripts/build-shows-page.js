@@ -31,52 +31,57 @@ const shows = [
   },
 ];
 
-//selectors
-let showContainer = document.querySelector('.shows__bottom');
+const showContainer = document.querySelector('.shows__bottom');
 
 const renderShows = (showsArr) => {
   showsArr.forEach((show, index) => {
-    let itemContainer = document.createElement('div');
+    const itemContainer = document.createElement('div');
     itemContainer.classList.add('shows__show-container');
 
-    let itemObjectContainer = document.createElement('div');
+    const itemObjectContainer = document.createElement('div');
     itemObjectContainer.classList.add('shows__show-object-item-container');
 
-    let itemObject1 = document.createElement('div');
+    const itemObject1 = document.createElement('div');
     itemObject1.classList.add('shows__show-object-item');
 
-    let dateKey = document.createElement('p');
+    const dateKey = document.createElement('p');
     dateKey.classList.add('shows__object-key');
     dateKey.innerHTML = 'DATE';
 
-    let dateValue = document.createElement('p');
+    const dateValue = document.createElement('p');
     dateValue.classList.add('shows__object-value');
     dateValue.innerHTML = show.date;
 
-    let itemObject2 = document.createElement('div');
+    const itemObject2 = document.createElement('div');
     itemObject2.classList.add('shows__show-object-item');
 
-    let venueValue = document.createElement('p');
+    const venueValue = document.createElement('p');
     venueValue.classList.add('shows__object-value');
     venueValue.innerHTML = show.venue;
 
-    let venueKey = document.createElement('p');
+    const venueKey = document.createElement('p');
     venueKey.classList.add('shows__object-key');
     venueKey.innerHTML = 'VENUE';
 
-    let itemObject3 = document.createElement('div');
+    const itemObject3 = document.createElement('div');
     itemObject3.classList.add('shows__show-object-item');
 
-    let locationKey = document.createElement('p');
+    const locationKey = document.createElement('p');
     locationKey.classList.add('shows__object-key');
     locationKey.innerHTML = 'LOCATION';
 
-    let locationValue = document.createElement('p');
+    const locationValue = document.createElement('p');
     locationValue.classList.add('shows__object-value');
     locationValue.innerHTML = show.location;
 
-    let buyTicketsBtn = document.createElement('button');
+    const buyTicketsBtn = document.createElement('button');
     buyTicketsBtn.classList.add('shows__buy-tickets');
+
+    buyTicketsBtn.addEventListener('click', () => {
+      itemContainer.classList.toggle('shows__show-container--active');
+      console.log(itemContainer);
+    });
+
     buyTicketsBtn.innerHTML = 'BUY TICKETS';
 
     showContainer.appendChild(itemContainer);

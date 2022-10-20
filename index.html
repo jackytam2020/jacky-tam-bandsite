@@ -141,6 +141,49 @@
           />
         </div>
       </section>
+
+      <section class="comments-section">
+        <h1 class="comments-section__header">Join the Conversation</h1>
+        <div class="comments-section__comment-form">
+          <div class="comments-section__form-top">
+            <img
+              class="comments-section__avatar"
+              alt="avatar"
+              src="./assets/images/Mohan-muruge.jpg"
+            />
+
+            <div class="comments-section__name-block">
+              <p class="comments-section__name-header">NAME</p>
+              <input
+                class="comments-section__name-input"
+                type="text"
+                placeholder="Enter your name"
+              />
+            </div>
+          </div>
+          <div class="comments-section__form-bottom">
+            <div class="comments-section__comment-block">
+              <p class="comments-section__comment-header">COMMENT</p>
+              <textarea
+                class="comments-section__comment-input"
+                type="textarea"
+                placeholder="Add a new comment"
+              ></textarea>
+              <button
+                class="comments-section__post-button"
+                type="submit"
+                onclick="postComment()"
+              >
+                COMMENT
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="comments-section__rendered-comments">
+          <!--Comments will be rendered here -->
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
@@ -230,5 +273,6 @@
         </p>
       </div>
     </footer>
+    <script src="./scripts/index-page.js" async defer></script>
   </body>
 </html>

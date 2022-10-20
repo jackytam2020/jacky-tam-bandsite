@@ -94,7 +94,7 @@
 
     &__logo {
       position: absolute;
-      bottom: 60px;
+      bottom: 80px;
     }
 
     &__band-copyright {
@@ -180,9 +180,8 @@
       width: 100%;
     }
 
-    &__logo {
-      position: absolute;
-      right: 0px;
+    &__logo-holder {
+      margin-left: auto;
     }
 
     &__contact-info-row {
