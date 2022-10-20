@@ -23,11 +23,16 @@
 
   &__right {
     display: flex;
+  }
 
-    &__link--active {
-      color: $white;
-      font-family: 'Avenir Demi';
-    }
+  &__link {
+    color: $mercury;
+    font-size: 0.875rem;
+  }
+
+  &__link--active {
+    color: $white;
+    font-family: 'Avenir Demi';
   }
 
   &__link-holder--active {
@@ -41,11 +46,6 @@
       color: $white;
       font-family: 'Avenir Demi';
     }
-  }
-
-  &__link {
-    color: $mercury;
-    font-size: 0.875rem;
   }
 }
 
