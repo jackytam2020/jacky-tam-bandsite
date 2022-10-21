@@ -34,7 +34,7 @@ const shows = [
 const showContainer = document.querySelector('.shows__bottom');
 
 const renderShows = (showsArr) => {
-  showsArr.forEach((show, index) => {
+  const renderedArr = showsArr.map((show, index) => {
     const itemContainer = document.createElement('div');
     itemContainer.classList.add('shows__show-container');
 
@@ -76,12 +76,6 @@ const renderShows = (showsArr) => {
 
     const buyTicketsBtn = document.createElement('button');
     buyTicketsBtn.classList.add('shows__buy-tickets');
-
-    buyTicketsBtn.addEventListener('click', () => {
-      itemContainer.classList.toggle('shows__show-container--active');
-      console.log(itemContainer);
-    });
-
     buyTicketsBtn.innerHTML = 'BUY TICKETS';
 
     showContainer.appendChild(itemContainer);
@@ -96,7 +90,39 @@ const renderShows = (showsArr) => {
     itemObject3.appendChild(locationKey);
     itemObject3.appendChild(locationValue);
     itemObjectContainer.appendChild(buyTicketsBtn);
+
+    return [
+      showContainer.appendChild(itemContainer),
+      itemContainer.appendChild(itemObjectContainer),
+      itemObjectContainer.appendChild(itemObject1),
+      itemObjectContainer.appendChild(itemObject2),
+      itemObjectContainer.appendChild(itemObject3),
+      itemObject1.appendChild(dateKey),
+      itemObject1.appendChild(dateValue),
+      itemObject2.appendChild(venueKey),
+      itemObject2.appendChild(venueValue),
+      itemObject3.appendChild(locationKey),
+      itemObject3.appendChild(locationValue),
+      itemObjectContainer.appendChild(buyTicketsBtn),
+    ];
   });
 };
 
 renderShows(shows);
+
+const showsBlock = document.querySelectorAll('.shows__show-container');
+
+showsBlock.forEach((row) => {
+  const buyTicketsBtn = row.querySelector('.shows__buy-tickets');
+
+  buyTicketsBtn.addEventListener('click', () => {
+    const selectedRow = document.querySelector(
+      '.shows__show-container--active'
+    );
+    row.classList.toggle('shows__show-container--active');
+
+    if (selectedRow) {
+      selectedRow.classList.remove('shows__show-container--active');
+    }
+  });
+});

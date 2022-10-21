@@ -23,7 +23,7 @@ const renderedCommentsContainer = document.querySelector(
 );
 
 const renderComments = (commentsArr) => {
-  commentsArr.forEach((comment, index) => {
+  commentsArr.map((comment, index) => {
     const commentContainer = document.createElement('div');
     commentContainer.classList.add('comments-section__comment-container');
 

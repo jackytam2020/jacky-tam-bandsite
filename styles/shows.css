@@ -692,12 +692,6 @@
 }
 
 .shows__show-container--active {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-bottom: 1px solid #e1e1e1;
-  padding-bottom: 24px;
-  padding-top: 24px;
   background-color: #e1e1e1;
 }
 

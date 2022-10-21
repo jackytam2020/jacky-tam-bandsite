@@ -16,12 +16,6 @@
 }
 
 .shows__show-container--active {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-bottom: 1px solid $mercury;
-  padding-bottom: 24px;
-  padding-top: 24px;
   background-color: $mercury;
 }
 
