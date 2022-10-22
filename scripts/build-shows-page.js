@@ -49,7 +49,7 @@ const renderShows = (showsArr) => {
     dateKey.innerHTML = 'DATE';
 
     const dateValue = document.createElement('p');
-    dateValue.classList.add('shows__object-value');
+    dateValue.classList.add('shows__object-value--bolded');
     dateValue.innerHTML = show.date;
 
     const itemObject2 = document.createElement('div');

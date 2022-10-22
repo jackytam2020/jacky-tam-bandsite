@@ -72,35 +72,74 @@ const renderComments = (commentsArr) => {
 let newUser;
 let newComment;
 
+const nameInputField = document.querySelector('.comments-section__name-input');
+const commentInputField = document.querySelector(
+  '.comments-section__comment-input'
+);
+
 const handleInputName = (event) => {
   newUser = event.target.value;
+
+  if (event.target.value !== '') {
+    nameInputField.className = 'comments-section__name-input';
+  } //if users backspaces till empty, trigger error outline
+  else if (event.target.value === '') {
+    nameInputField.className = 'comments-section__name-input--invalid';
+  }
 };
 
-const nameInputField = document.querySelector('.comments-section__name-input');
 nameInputField.addEventListener('keyup', handleInputName);
 
 const handleMessage = (event) => {
   newComment = event.target.value;
+
+  if (event.target.value !== '') {
+    commentInputField.className = 'comments-section__comment-input';
+  } //if users backspaces till empty, trigger error outline
+  else if (event.target.value === '') {
+    commentInputField.className = 'comments-section__comment-input--invalid';
+  }
 };
 
-const commentInputField = document.querySelector(
-  '.comments-section__comment-input'
-);
 commentInputField.addEventListener('keyup', handleMessage);
 
-const postComment = () => {
+const handleInputError = () => {
+  if (nameInputField.value === '') {
+    nameInputField.className = 'comments-section__name-input--invalid';
+  }
+
+  if (commentInputField.value === '') {
+    commentInputField.className = 'comments-section__comment-input--invalid';
+  }
+};
+
+const postComment = (event) => {
+  event.preventDefault();
+
   const day = new Date().getDate();
   const month = new Date().getMonth() + 1;
   const year = new Date().getFullYear();
   let newDate = month + '/' + day + '/' + year;
 
-  comments.unshift({ name: newUser, date: newDate, comment: newComment });
-  renderedCommentsContainer.innerHTML = '';
+  //turn input border red if they are empty on click
+  handleInputError();
 
-  //remove all elements in the container
-  renderComments(comments);
-  nameInputField.value = '';
-  commentInputField.value = '';
+  if (nameInputField.value !== '' && commentInputField.value !== '') {
+    comments.unshift({ name: newUser, date: newDate, comment: newComment });
+
+    //remove all elements in the container
+    renderedCommentsContainer.innerHTML = '';
+    renderComments(comments);
+
+    //clear input value and stored input values
+    nameInputField.value = '';
+    commentInputField.value = '';
+    newUser.value = '';
+    newComment.value = '';
+  } else {
+    //do nothing
+    null;
+  }
 };
 
 renderComments(comments);
