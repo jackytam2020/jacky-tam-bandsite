@@ -57,6 +57,7 @@
     padding-left: 10px;
     outline: none;
     transition: 0.5s;
+    background-color: #fafafa;
   }
 
   &__name-input--invalid {
@@ -78,6 +79,7 @@
     padding-top: 10px;
     outline: none;
     transition: 0.5s;
+    background-color: #fafafa;
   }
   &__comment-input--invalid {
     @extend .comments-section__comment-input;

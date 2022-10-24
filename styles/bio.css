@@ -573,6 +573,7 @@
   padding-left: 10px;
   outline: none;
   transition: 0.5s;
+  background-color: #fafafa;
 }
 .comments-section__name-input--invalid {
   border: 1px solid red;
@@ -590,6 +591,7 @@
   padding-top: 10px;
   outline: none;
   transition: 0.5s;
+  background-color: #fafafa;
 }
 .comments-section__comment-input--invalid {
   border: 1px solid red;
