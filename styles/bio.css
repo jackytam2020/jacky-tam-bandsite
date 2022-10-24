@@ -547,12 +547,17 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  width: 100%;
 }
 .comments-section__name-block {
   width: 85%;
+  display: flex;
+  flex-direction: column;
 }
 .comments-section__comment-block {
   width: 85%;
+  display: flex;
+  flex-direction: column;
   margin-left: auto;
 }
 .comments-section__comment-header {
@@ -562,20 +567,39 @@
   width: 10%;
   padding: 0;
 }
-.comments-section__name-input {
-  width: 100%;
+.comments-section__name-input, .comments-section__name-input--invalid {
   border: 1px solid #afafaf;
   border-radius: 4px;
   padding-left: 10px;
+  outline: none;
+  transition: 0.5s;
+  background-color: #fafafa;
 }
-.comments-section__comment-input {
-  width: 100%;
+.comments-section__name-input--invalid {
+  border: 1px solid red;
+  transition: 0.5s;
+}
+.comments-section__name-input:focus, .comments-section__name-input--invalid:focus {
+  border: 1px solid #000000;
+}
+.comments-section__comment-input, .comments-section__comment-input--invalid {
   height: 100px;
   border: 1px solid #afafaf;
   border-radius: 4px;
   resize: none;
   padding-left: 10px;
   padding-top: 10px;
+  outline: none;
+  transition: 0.5s;
+  background-color: #fafafa;
+}
+.comments-section__comment-input--invalid {
+  border: 1px solid red;
+  transition: 0.5s;
+}
+.comments-section__comment-input:focus, .comments-section__comment-input--invalid:focus {
+  height: 100px;
+  border: 1px solid #000000;
 }
 .comments-section ::-moz-placeholder {
   color: #000000;
@@ -597,6 +621,7 @@
   color: #ffffff;
   border-radius: 4px;
   height: 40px;
+  border: none;
 }
 .comments-section__post-button:hover {
   background-color: #000000;
@@ -657,7 +682,7 @@
     padding-bottom: 20px;
     border-bottom: 1px solid #afafaf;
   }
-  .comments-section__name-input {
+  .comments-section__name-input, .comments-section__name-input--invalid {
     height: 36px;
   }
   .comments-section__post-button {
@@ -683,7 +708,7 @@
     height: 48px;
     background-color: #e1e1e1;
   }
-  .comments-section__name-input {
+  .comments-section__name-input, .comments-section__name-input--invalid {
     height: 48px;
   }
   .comments-section__post-button {
@@ -728,7 +753,7 @@
     height: 48px;
     background-color: #e1e1e1;
   }
-  .comments-section__name-input {
+  .comments-section__name-input, .comments-section__name-input--invalid {
     height: 48px;
   }
   .comments-section__post-button {
