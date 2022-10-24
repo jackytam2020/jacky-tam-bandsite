@@ -143,3 +143,6 @@ const postComment = (event) => {
 };
 
 renderComments(comments);
+
+const postButton = document.querySelector('.comments-section__post-button');
+postButton.addEventListener('click', postComment);
