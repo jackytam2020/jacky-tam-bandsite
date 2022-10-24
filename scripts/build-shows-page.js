@@ -34,7 +34,7 @@ const shows = [
 const showContainer = document.querySelector('.shows__bottom');
 
 const renderShows = (showsArr) => {
-  const renderedArr = showsArr.map((show, index) => {
+  const renderedArr = showsArr.map( show => {
     const itemContainer = document.createElement('div');
     itemContainer.classList.add('shows__show-container');
 
@@ -91,20 +91,6 @@ const renderShows = (showsArr) => {
     itemObject3.appendChild(locationValue);
     itemObjectContainer.appendChild(buyTicketsBtn);
 
-    return [
-      showContainer.appendChild(itemContainer),
-      itemContainer.appendChild(itemObjectContainer),
-      itemObjectContainer.appendChild(itemObject1),
-      itemObjectContainer.appendChild(itemObject2),
-      itemObjectContainer.appendChild(itemObject3),
-      itemObject1.appendChild(dateKey),
-      itemObject1.appendChild(dateValue),
-      itemObject2.appendChild(venueKey),
-      itemObject2.appendChild(venueValue),
-      itemObject3.appendChild(locationKey),
-      itemObject3.appendChild(locationValue),
-      itemObjectContainer.appendChild(buyTicketsBtn),
-    ];
   });
 };
 
