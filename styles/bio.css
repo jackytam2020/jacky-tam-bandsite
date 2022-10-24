@@ -572,9 +572,11 @@
   border-radius: 4px;
   padding-left: 10px;
   outline: none;
+  transition: 0.5s;
 }
 .comments-section__name-input--invalid {
   border: 1px solid red;
+  transition: 0.5s;
 }
 .comments-section__name-input:focus, .comments-section__name-input--invalid:focus {
   border: 1px solid #000000;
@@ -587,9 +589,11 @@
   padding-left: 10px;
   padding-top: 10px;
   outline: none;
+  transition: 0.5s;
 }
 .comments-section__comment-input--invalid {
   border: 1px solid red;
+  transition: 0.5s;
 }
 .comments-section__comment-input:focus, .comments-section__comment-input--invalid:focus {
   height: 100px;
