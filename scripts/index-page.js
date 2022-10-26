@@ -177,6 +177,9 @@ const postComment = (event) => {
   }
 };
 
+const postButton = document.querySelector('.comments-section__post-button');
+postButton.addEventListener('click', postComment);
+
 const deleteComment = (commentID) => {
   const deleteResponse = axios.delete(
     `https://project-1-api.herokuapp.com/comments/${commentID}?api_key=4d7cc112-e75f-4f19-a2de-f1563bbe35f6`
@@ -206,6 +209,3 @@ const likeComment = (commentID) => {
 };
 
 getAllComments();
-
-const postButton = document.querySelector('.comments-section__post-button');
-postButton.addEventListener('click', postComment);
