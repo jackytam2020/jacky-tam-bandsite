@@ -154,6 +154,27 @@
     margin-top: 20px;
     font-family: 'Avenir Regular';
   }
+
+  &__like-count {
+    font-size: 0.875rem;
+  }
+  &__delete-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+  &__like-icon {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    object-fit: cover;
+    margin-right: 20px;
+  }
+  &__post-button {
+    font-family: 'Avenir Bold';
+    cursor: pointer;
+    font-size: 0.875rem;
+  }
 }
 
 /* for small layout */
@@ -184,6 +205,7 @@
     &__post-button {
       width: 100%;
       margin-top: 16px;
+      font-family: 'Avenir Bold';
     }
 
     &__comment-container {
