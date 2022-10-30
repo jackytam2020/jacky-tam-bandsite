@@ -21,7 +21,7 @@
 @font-face {
   font-family: "Avenir Bold";
   src: url("../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
-  font-weight: 600;
+  font-weight: 700;
   font-style: normal;
 }
 .nav-bar {
@@ -689,6 +689,7 @@
   border-bottom: 1px solid #e1e1e1;
   padding-bottom: 24px;
   padding-top: 24px;
+  cursor: pointer;
 }
 
 .shows__show-container--active {

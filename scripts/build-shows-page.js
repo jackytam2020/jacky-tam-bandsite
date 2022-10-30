@@ -53,15 +53,8 @@ const renderShows = (showsArr) => {
     buyTicketsBtn.classList.add('shows__buy-tickets');
     buyTicketsBtn.innerHTML = 'BUY TICKETS';
 
-    buyTicketsBtn.addEventListener('click', () => {
-      const selectedRow = document.querySelector(
-        '.shows__show-container--active'
-      );
-      itemContainer.classList.toggle('shows__show-container--active');
-
-      if (selectedRow) {
-        selectedRow.classList.remove('shows__show-container--active');
-      }
+    itemContainer.addEventListener('click', () => {
+      toggleShowsBackground(itemContainer);
     });
 
     showContainer.appendChild(itemContainer);
@@ -79,14 +72,20 @@ const renderShows = (showsArr) => {
   });
 };
 
-let shows = [];
+const toggleShowsBackground = (showContainer) => {
+  const selectedRow = document.querySelector('.shows__show-container--active');
+  showContainer.classList.toggle('shows__show-container--active');
+
+  if (selectedRow) {
+    selectedRow.classList.remove('shows__show-container--active');
+  }
+};
 
 const getAllShows = async () => {
   const showsPromise = await axios.get(
     `https://project-1-api.herokuapp.com/showdates?api_key=4d7cc112-e75f-4f19-a2de-f1563bbe35f6`
   );
-  shows = showsPromise.data;
-  renderShows(shows);
+  renderShows(showsPromise.data);
 };
 
 getAllShows();
