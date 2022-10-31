@@ -21,7 +21,7 @@
 @font-face {
   font-family: "Avenir Bold";
   src: url("../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
-  font-weight: 600;
+  font-weight: 700;
   font-style: normal;
 }
 .nav-bar {
@@ -662,6 +662,27 @@
   margin-top: 20px;
   font-family: "Avenir Regular";
 }
+.comments-section__like-count {
+  font-size: 0.875rem;
+}
+.comments-section__delete-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.comments-section__like-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 20px;
+}
+.comments-section__post-button {
+  font-family: "Avenir Bold";
+  cursor: pointer;
+  font-size: 0.875rem;
+}
 
 /* for small layout */
 @media only screen and (max-width: 767px) {
@@ -688,6 +709,7 @@
   .comments-section__post-button {
     width: 100%;
     margin-top: 16px;
+    font-family: "Avenir Bold";
   }
   .comments-section__comment-container {
     padding-bottom: 0px;

@@ -1,29 +1,13 @@
-const comments = [
-  {
-    name: 'Connor Walton',
-    date: '02/17/2021',
-    comment:
-      'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.',
-  },
-  {
-    name: 'Emilie Beach',
-    date: '01/09/2021',
-    comment:
-      'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.',
-  },
-  {
-    name: 'Miles Acosta',
-    date: '12/20/2020',
-    comment: `I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.`,
-  },
-];
-
 const renderedCommentsContainer = document.querySelector(
   '.comments-section__rendered-comments'
 );
 
 const renderComments = (commentsArr) => {
-  commentsArr.map((comment, index) => {
+  //sort comments so that most recent comments appear at the top
+  const sortedCommentsArr = commentsArr.sort(
+    (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
+  );
+  sortedCommentsArr.map((comment, index) => {
     const commentContainer = document.createElement('div');
     commentContainer.classList.add('comments-section__comment-container');
 
@@ -51,10 +35,39 @@ const renderComments = (commentsArr) => {
     const datePosted = document.createElement('p');
     datePosted.classList.add('comments-section__date-posted');
 
-    datePosted.innerHTML = comment.date;
+    datePosted.innerHTML = new Date(comment.timestamp)
+      .toLocaleString('en-CA', {
+        timeZone: 'UTC',
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        weekday: 'short',
+      })
+      .replace(/,/g, ' ');
 
     const commentPosted = document.createElement('p');
     commentPosted.classList.add('comments-section__comment');
+
+    const likeCount = document.createElement('p');
+    likeCount.classList.add('comments-section__like-count');
+
+    const likeIcon = document.createElement('img');
+    likeIcon.classList.add('comments-section__like-icon');
+    likeIcon.src = '../assets/icons/SVG/icon-like.svg';
+
+    likeIcon.addEventListener('click', () => {
+      likeComment(comment.id);
+    });
+
+    likeCount.innerHTML = comment.likes + '  likes';
+
+    const deleteIcon = document.createElement('img');
+    deleteIcon.classList.add('comments-section__delete-icon');
+    deleteIcon.src = '../assets/icons/SVG/icon-delete.svg';
+
+    deleteIcon.addEventListener('click', () => {
+      deleteComment(comment.id);
+    });
 
     commentPosted.innerHTML = comment.comment;
 
@@ -66,7 +79,26 @@ const renderComments = (commentsArr) => {
     userInfo.appendChild(userName);
     userInfo.appendChild(datePosted);
     commentRightContainer.appendChild(commentPosted);
+    commentRightContainer.appendChild(likeCount);
+    commentRightContainer.appendChild(likeIcon);
+    commentRightContainer.appendChild(deleteIcon);
   });
+};
+
+const getAllComments = () => {
+  const commentsPromise = axios.get(
+    `https://project-1-api.herokuapp.com/comments?api_key=4d7cc112-e75f-4f19-a2de-f1563bbe35f6`
+  );
+  commentsPromise
+    .then((response) => {
+      //remove all elements in the container and then repopulate the updated array
+      renderedCommentsContainer.innerHTML = '';
+      renderComments(response.data);
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
 };
 
 let newUser;
@@ -113,24 +145,27 @@ const handleInputError = () => {
   }
 };
 
+const addComment = (inputedName, inputedComment) => {
+  const addCommentResponse = axios.post(
+    `https://project-1-api.herokuapp.com/comments?api_key=4d7cc112-e75f-4f19-a2de-f1563bbe35f6`,
+    {
+      name: inputedName,
+      comment: inputedComment,
+    }
+  );
+  addCommentResponse.then((response) => {
+    getAllComments();
+  });
+};
+
 const postComment = (event) => {
   event.preventDefault();
-
-  const day = new Date().getDate();
-  const month = new Date().getMonth() + 1;
-  const year = new Date().getFullYear();
-  let newDate = month + '/' + day + '/' + year;
 
   //turn input border red if they are empty on click
   handleInputError();
 
   if (nameInputField.value !== '' && commentInputField.value !== '') {
-    comments.unshift({ name: newUser, date: newDate, comment: newComment });
-
-    //remove all elements in the container
-    renderedCommentsContainer.innerHTML = '';
-    renderComments(comments);
-
+    addComment(newUser, newComment);
     //clear input value and stored input values
     nameInputField.value = '';
     commentInputField.value = '';
@@ -142,7 +177,35 @@ const postComment = (event) => {
   }
 };
 
-renderComments(comments);
-
 const postButton = document.querySelector('.comments-section__post-button');
 postButton.addEventListener('click', postComment);
+
+const deleteComment = (commentID) => {
+  const deleteResponse = axios.delete(
+    `https://project-1-api.herokuapp.com/comments/${commentID}?api_key=4d7cc112-e75f-4f19-a2de-f1563bbe35f6`
+  );
+  deleteResponse
+    .then((response) => {
+      console.log(response);
+      getAllComments();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+const likeComment = (commentID) => {
+  const likeResponse = axios.put(
+    `https://project-1-api.herokuapp.com/comments/${commentID}/like?api_key=4d7cc112-e75f-4f19-a2de-f1563bbe35f6`
+  );
+  likeResponse
+    .then((response) => {
+      console.log(response.data);
+      getAllComments();
+    })
+    .catch((error) => {
+      console.log(error.data);
+    });
+};
+
+getAllComments();

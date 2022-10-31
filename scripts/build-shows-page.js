@@ -1,40 +1,7 @@
-const shows = [
-  {
-    date: 'Mon Sept 06 2021',
-    venue: 'Ronald Lane',
-    location: 'San Francisco, CA',
-  },
-  {
-    date: 'Tue Sept 21 2021',
-    venue: 'Pier 3 East',
-    location: 'San Francisco, CA',
-  },
-  {
-    date: 'Fri Oct 15 2021',
-    venue: 'View Lounge',
-    location: 'San Francisco, CA',
-  },
-  {
-    date: 'Sat Nov 06 2021',
-    venue: 'Hyatt Agency',
-    location: 'San Francisco, CA',
-  },
-  {
-    date: 'Fri Nov 26 2021',
-    venue: 'Moscow Center',
-    location: 'San Francisco, CA',
-  },
-  {
-    date: 'Wed Dec 15 2021',
-    venue: 'Press Club',
-    location: 'San Francisco, CA',
-  },
-];
-
 const showContainer = document.querySelector('.shows__bottom');
 
 const renderShows = (showsArr) => {
-  const renderedArr = showsArr.map( show => {
+  const renderedArr = showsArr.map((show) => {
     const itemContainer = document.createElement('div');
     itemContainer.classList.add('shows__show-container');
 
@@ -50,14 +17,22 @@ const renderShows = (showsArr) => {
 
     const dateValue = document.createElement('p');
     dateValue.classList.add('shows__object-value--bolded');
-    dateValue.innerHTML = show.date;
+    dateValue.innerHTML = new Date(show.date)
+      .toLocaleString('en-CA', {
+        timeZone: 'UTC',
+        day: '2-digit',
+        month: 'short',
+        year: 'numeric',
+        weekday: 'short',
+      })
+      .replace(/,/g, ' ');
 
     const itemObject2 = document.createElement('div');
     itemObject2.classList.add('shows__show-object-item');
 
     const venueValue = document.createElement('p');
     venueValue.classList.add('shows__object-value');
-    venueValue.innerHTML = show.venue;
+    venueValue.innerHTML = show.place;
 
     const venueKey = document.createElement('p');
     venueKey.classList.add('shows__object-key');
@@ -78,6 +53,10 @@ const renderShows = (showsArr) => {
     buyTicketsBtn.classList.add('shows__buy-tickets');
     buyTicketsBtn.innerHTML = 'BUY TICKETS';
 
+    itemContainer.addEventListener('click', () => {
+      toggleShowsBackground(itemContainer);
+    });
+
     showContainer.appendChild(itemContainer);
     itemContainer.appendChild(itemObjectContainer);
     itemObjectContainer.appendChild(itemObject1);
@@ -90,25 +69,23 @@ const renderShows = (showsArr) => {
     itemObject3.appendChild(locationKey);
     itemObject3.appendChild(locationValue);
     itemObjectContainer.appendChild(buyTicketsBtn);
-
   });
 };
 
-renderShows(shows);
+const toggleShowsBackground = (showContainer) => {
+  const selectedRow = document.querySelector('.shows__show-container--active');
+  showContainer.classList.toggle('shows__show-container--active');
 
-const showsBlock = document.querySelectorAll('.shows__show-container');
+  if (selectedRow) {
+    selectedRow.classList.remove('shows__show-container--active');
+  }
+};
 
-showsBlock.forEach((row) => {
-  const buyTicketsBtn = row.querySelector('.shows__buy-tickets');
+const getAllShows = async () => {
+  const showsPromise = await axios.get(
+    `https://project-1-api.herokuapp.com/showdates?api_key=4d7cc112-e75f-4f19-a2de-f1563bbe35f6`
+  );
+  renderShows(showsPromise.data);
+};
 
-  buyTicketsBtn.addEventListener('click', () => {
-    const selectedRow = document.querySelector(
-      '.shows__show-container--active'
-    );
-    row.classList.toggle('shows__show-container--active');
-
-    if (selectedRow) {
-      selectedRow.classList.remove('shows__show-container--active');
-    }
-  });
-});
+getAllShows();
