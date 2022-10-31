@@ -53,7 +53,7 @@ const renderComments = (commentsArr) => {
 
     const likeIcon = document.createElement('img');
     likeIcon.classList.add('comments-section__like-icon');
-    likeIcon.src = '../assets/icons/SVG/icon-like.svg';
+    likeIcon.src = './assets/icons/SVG/icon-like.svg';
 
     likeIcon.addEventListener('click', () => {
       likeComment(comment.id);
@@ -63,7 +63,7 @@ const renderComments = (commentsArr) => {
 
     const deleteIcon = document.createElement('img');
     deleteIcon.classList.add('comments-section__delete-icon');
-    deleteIcon.src = '../assets/icons/SVG/icon-delete.svg';
+    deleteIcon.src = './assets/icons/SVG/icon-delete.svg';
 
     deleteIcon.addEventListener('click', () => {
       deleteComment(comment.id);
